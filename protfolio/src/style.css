@@ -9,6 +9,7 @@ body
 {
     height: 100vh;
     font-family: 'Poppins';
+    background-color: gray;
 }
 
 .webgl
@@ -17,4 +18,13 @@ body
     top: 0;
     left: 0;
     outline: none;
+}
+h1{
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    left: 50%;
 }

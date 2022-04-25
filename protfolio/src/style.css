@@ -1,5 +1,6 @@
 :root {
     --color--main1-color: #0D0D0D;
+    --color--main2-color: #2B0040;
     --color--text1-color: #43D9D8;
     --color--text2-color: #D93BCE;
     --color--text3-color: #FFFFFF
@@ -77,7 +78,7 @@ body
 
 .preface{
     position: relative;
-    top: -600%;
+    top: -300%;
     width: 100%;
     height: 100%;
     font-size: 18px;
@@ -93,6 +94,7 @@ body
     color: transparent;
     -webkit-text-stroke: 0.1rem rgb(255, 255, 255);
     position: relative;
+    top:12%;
 }
 
 .front-end-developer::before {
@@ -106,7 +108,7 @@ body
 .front-end-developer::after {
     content: "FRONT-END DEVELOPER";
     position: absolute;
-    width: 120%;
+    width: 100%;
     display:inline-block;
     left: 0.5rem;
     top: 0.5rem;
@@ -121,16 +123,72 @@ body
     justify-content: center;
     align-items: center;
 }
-.detail-content > p {
-    
-}
 
-h1{
-    font-size: 8rem;
-    text-transform: uppercase;
-    color: white;
+.detail-content > p {
+    position: relative;
+    top: 200%;
+    left: 200%;
+    color: var(--color--text3-color);
+    width: 20vw;
+    height: 9vh;
 }
 
 section{
     height: 100vh;
+}
+
+.section-2{
+    background-color: var(--color--main2-color);
+    width: 100vw;
+    position: relative;
+    
+}
+.over-up{
+    position: relative;
+    overflow: hidden;
+    top: -30.5%;
+    left: -0.5%;
+    width: 100%;
+    height: 20%;
+    background-color: var(--color--main2-color);
+    transform: rotate(2.74deg);
+}
+.over-down{
+    position: relative;
+    overflow: hidden;
+    top: +30.5%;
+    width: 100%;
+    left: -0.5%;
+    height: 20%;
+    background-color: var(--color--main2-color);
+    transform: rotate(-2.74deg);
+}
+
+.my-background{
+    position: absolute;
+    background-image: url('./assets/images/background.svg');
+    top:20%;
+    left: 15%;
+    width: 424px;
+    height: 424px;
+}
+
+.my-picture{
+    position: absolute;
+    background-image: url('./assets/images/just-me.svg');
+    width: 424px;
+    height: 424px;
+}
+
+.section-2 .title{
+    position: absolute;
+    color: var(--color--text3-color);
+    top: 30%;
+    left : 50%;
+}
+.section-2 .title-bar{
+    background-image: url('assets/images/title-bar.svg');
+    width: 5px;
+    height: 21px;
+
 }

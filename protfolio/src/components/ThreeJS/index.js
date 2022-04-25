@@ -4,8 +4,8 @@ import * as dat from "dat.gui";
 
 export function ThreeJS() {
   // Loading
-  const textureLoader = new THREE.TextureLoader(); // 텍스쳐를 가져오기위함
-  const normalTexture = textureLoader.load("/textures/NormalMap.png"); // 텍스쳐를 가져온다
+  const textureLoader = new THREE.TextureLoader();
+  const normalTexture = textureLoader.load("/textures/NormalMap_Moon.png");
 
   // Debug
   const gui = new dat.GUI();
@@ -17,8 +17,8 @@ export function ThreeJS() {
   const scene = new THREE.Scene();
 
   // Objects
-  // const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
-  const sphereGeometry = new THREE.SphereGeometry(0.5, 64, 64); // class 이름이 조금 변경됨
+
+  const sphereGeometry = new THREE.SphereGeometry(0.5, 64, 64);
 
   // Materials
 
@@ -26,7 +26,7 @@ export function ThreeJS() {
   material.metalness = 0.7;
   material.roughness = 0.2;
   material.normalMap = normalTexture;
-  material.color = new THREE.Color(0x292929);
+  material.color = new THREE.Color(0xbd87ec);
 
   // Mesh
   const sphere = new THREE.Mesh(sphereGeometry, material);
@@ -34,43 +34,10 @@ export function ThreeJS() {
 
   // Lights
 
-  const pointLight = new THREE.PointLight(0xffffff, 0.1);
-  pointLight.position.x = 2;
-  pointLight.position.y = 3;
-  pointLight.position.z = 4;
-  scene.add(pointLight);
-
-  // Lights 2
-  // LIGHTS를 좀더 늘려보자
-  const pointLight2 = new THREE.PointLight(0xff0000, 2);
-  // 위치 조정
-  // pointLight.position.x = 2;
-  // pointLight.position.y = 3;
-  // pointLight.position.z = 4;
-  pointLight2.position.set(1, 1, 1); // == x,y,z
-  scene.add(pointLight2);
-
-  // gui를 이용해 control을 할수있다
-  // gui.add(pointLight2.position, "y");
-
-  // gui 옵션을 이용해 value를 설정할수 있다
-  gui.add(pointLight2.position, "y").min(-3).max(3).step(0.01);
-  gui.add(pointLight2.position, "x").min(-6).max(6).step(0.01);
-  gui.add(pointLight2.position, "z").min(-3).max(3).step(0.01);
-  gui.add(pointLight2, "intensity").min(0).max(10).step(0.01);
-
-  // pointLigth를 도와주는 helper를 만들수 있다
-  const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1);
-  scene.add(pointLightHelper);
-
-  // Light 3
-
-  const pointLight3 = new THREE.PointLight(0xff0000, 2);
-  pointLight3.position.set(-1.86, 1, -1.65);
+  const pointLight3 = new THREE.PointLight(0xffffff, 2);
+  pointLight3.position.set(-3, 2, 2.85);
   pointLight3.intensity = 10;
   scene.add(pointLight3);
-
-  // gui 하나에 다 보여주지말고  폴더로 보여줄수도 있다
 
   const light3 = gui.addFolder("Light3");
   light3.add(pointLight3.position, "y").min(-3).max(3).step(0.01);
@@ -79,9 +46,9 @@ export function ThreeJS() {
   light3.add(pointLight3, "intensity").min(0).max(10).step(0.01);
 
   const light3Color = {
-    color: 0xff0000,
+    color: 0xbd87ec,
   };
-  // gui에 색깔의 기본값을 설정해주고 , gui를 통해 색깔을 변경할수 있게 해준다
+
   light3.addColor(light3Color, "color").onChange(() => {
     pointLight3.color.set(light3Color.color);
   });
@@ -134,7 +101,7 @@ export function ThreeJS() {
    */
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
-    alpha: true, // 배그라운드를 투명하게 하기 위해서 사용함
+    alpha: true,
   });
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));

@@ -1,4 +1,58 @@
+:root {
+    --color--main1-color: #0D0D0D;
+    --color--text1-color: #43D9D8;
+    --color--text2-color: #D93BCE;
+    --color--text3-color: #FFFFFF
+
+}
+
+/* css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 *
+
 {
     margin: 0;
     padding: 0;
@@ -9,7 +63,7 @@ body
 {
     height: 100vh;
     font-family: 'Poppins';
-    background-color: rgb(0, 0, 0);
+    background-color: var(--color--main1-color);
 }
 
 .webgl
@@ -20,10 +74,55 @@ body
     outline: none;
     mix-blend-mode: exclusion; 
 }
+
+.preface{
+    position: relative;
+    top: -600%;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: var(--color--text3-color);
+    mix-blend-mode: exclusion; 
+}
+
+.front-end-developer{
+    text-align: start;
+    font-weight: bold;
+    font-size: 84px;
+    line-height: 7.8rem;
+    color: transparent;
+    -webkit-text-stroke: 0.1rem rgb(255, 255, 255);
+    position: relative;
+}
+
+.front-end-developer::before {
+        content: "FRONT-END DEVELOPER";
+        position: absolute;
+        left: -0.4rem;
+        top: -0.4rem;
+        -webkit-text-stroke: 0.1rem var(--color--text1-color);
+        opacity: 0.7;
+}
+.front-end-developer::after {
+    content: "FRONT-END DEVELOPER";
+    position: absolute;
+    width: 120%;
+    display:inline-block;
+    left: 0.5rem;
+    top: 0.5rem;
+    -webkit-text-stroke: 0.1rem var(--color--text2-color);
+    opacity: 0.7;
+}
+
 .container  {
     height: 100vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.detail-content > p {
+    
 }
 
 h1{
